@@ -393,8 +393,46 @@
             .logo { font-size: 0.8rem; white-space: normal; max-width: 60%; }
         }
 
+        /* HAMBURGER MENU */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: 1px solid var(--line-color);
+            color: var(--text-body);
+            font-family: var(--font-tech);
+            font-size: 0.75rem;
+            padding: 0.4rem 0.8rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.2s;
+        }
+
+        .menu-toggle:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .nav-links.open {
+            display: flex;
+        }
+
         @media (max-width: 768px) {
-            .nav-links { display: none; }
+            .menu-toggle { display: block; }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background: rgba(2, 6, 23, 0.97);
+                backdrop-filter: blur(12px);
+                padding: 1rem 5%;
+                gap: 1rem;
+                border-bottom: 1px solid var(--line-color);
+            }
+            .nav-links.open { display: flex; }
             .press-release-section { padding: 1rem; }
             .press-release { padding: 1.5rem; }
             .press-release h2 { font-size: 1.4rem; }
@@ -408,6 +446,7 @@
             <a href="index.html" class="logo">
                 NCRI | National Crab Robot Initiative
             </a>
+            <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">Menu</button>
             <div class="nav-links">
                 <a href="index.html#science">01 // Science</a>
                 <a href="index.html#comparison">02 // Data</a>
