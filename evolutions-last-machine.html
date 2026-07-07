@@ -423,14 +423,6 @@
     color: var(--muted);
   }
   .ctl-btn:hover { background: var(--surface-hover); }
-  .ctl-btn .disc {
-    width: 1.5rem; height: 1.5rem;
-    border-radius: 50%;
-    background: var(--foreground);
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
-  .ctl-btn .disc svg { width: 0.75rem; height: 0.75rem; fill: var(--background); }
   .ctl-btn .txt {
     font-family: var(--font-mono);
     font-size: 0.68rem;
@@ -467,7 +459,7 @@
   <nav class="masthead-nav">
     <a href="#hardware" class="active">Hardware Components</a>
     <a href="#landscape">Landscape</a>
-    <a href="#supply-chain">Suppliers</a>
+    <a href="#supply-chain">Supply Chain</a>
     <a href="#geopolitics">Geopolitics</a>
   </nav>
 </header>
@@ -499,7 +491,7 @@
 
   <div class="credits">
     <p>
-      Authored by the Office of Platform Morphology, <a href="https://www.nationalcrabrobotinitiative.com/" target="_blank" rel="noopener noreferrer">National Crab Robot Initiative</a><br>
+      Authored by the <a href="https://www.nationalcrabrobotinitiative.com/" target="_blank" rel="noopener noreferrer">National Crab Robot Initiative</a><br>
       Design and creative direction after <a href="https://www.humanityslastmachine.com/" target="_blank" rel="noopener noreferrer">Humanity&rsquo;s Last Machine</a><br>
       Supported by no one. We asked.
     </p>
@@ -727,12 +719,6 @@
 <div class="controls">
   <button type="button" class="ctl-btn" id="themeBtn" aria-label="Toggle theme">
     <span class="txt" id="themeTxt">Dark</span>
-  </button>
-  <button type="button" class="ctl-btn" id="audioBtn" aria-pressed="false" aria-label="Play site audio">
-    <span class="disc">
-      <svg id="audioIcon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
-    </span>
-    <span class="txt">Site Audio</span>
   </button>
 </div>
 
@@ -980,70 +966,6 @@
     } else {
       document.documentElement.setAttribute('data-theme', 'dark');
       themeTxt.textContent = 'Light';
-    }
-  });
-
-  // ---- site audio: procedurally generated surf ----
-  // The original site ships a theme song. Ours ships the sound of the ocean,
-  // synthesized, because the ocean declined to be licensed.
-  var audioBtn = document.getElementById('audioBtn');
-  var audioIcon = document.getElementById('audioIcon');
-  var ctx = null, nodes = null;
-
-  function buildSurf() {
-    ctx = new (window.AudioContext || window.webkitAudioContext)();
-    var bufferSize = ctx.sampleRate * 4;
-    var buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
-    var data = buffer.getChannelData(0);
-    var lastOut = 0;
-    for (var i = 0; i < bufferSize; i++) {
-      var white = Math.random() * 2 - 1;
-      lastOut = (lastOut + 0.02 * white) / 1.02; // brown-ish noise
-      data[i] = lastOut * 3.5;
-    }
-    var noise = ctx.createBufferSource();
-    noise.buffer = buffer;
-    noise.loop = true;
-
-    var filter = ctx.createBiquadFilter();
-    filter.type = 'lowpass';
-    filter.frequency.value = 600;
-
-    var gain = ctx.createGain();
-    gain.gain.value = 0.0;
-
-    // slow swell LFO
-    var lfo = ctx.createOscillator();
-    lfo.frequency.value = 0.08;
-    var lfoGain = ctx.createGain();
-    lfoGain.gain.value = 0.05;
-    lfo.connect(lfoGain);
-    lfoGain.connect(gain.gain);
-
-    noise.connect(filter);
-    filter.connect(gain);
-    gain.connect(ctx.destination);
-    noise.start();
-    lfo.start();
-    gain.gain.linearRampToValueAtTime(0.12, ctx.currentTime + 2);
-    nodes = { gain: gain };
-  }
-
-  var playing = false;
-  audioBtn.addEventListener('click', function () {
-    if (!playing) {
-      if (!ctx) buildSurf();
-      else ctx.resume();
-      playing = true;
-      audioBtn.setAttribute('aria-pressed', 'true');
-      audioBtn.setAttribute('aria-label', 'Pause site audio');
-      audioIcon.innerHTML = '<path d="M6 5h4v14H6zM14 5h4v14h-4z"></path>';
-    } else {
-      ctx.suspend();
-      playing = false;
-      audioBtn.setAttribute('aria-pressed', 'false');
-      audioBtn.setAttribute('aria-label', 'Play site audio');
-      audioIcon.innerHTML = '<path d="M8 5v14l11-7z"></path>';
     }
   });
 
