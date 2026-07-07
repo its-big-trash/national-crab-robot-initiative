@@ -514,7 +514,7 @@
   <h3 id="why-crabs">Why Crabs?</h3>
   <p>This document takes the crab seriously because evolution took the crab seriously, on at least five independent occasions. The phenomenon is called <a href="https://en.wikipedia.org/wiki/Carcinisation" target="_blank" rel="noopener noreferrer">carcinisation</a>: unrelated crustacean lineages repeatedly converging on the crab body plan. When one team ships a design, that is a product. When five teams that have never spoken to each other ship the same design, that is a specification.</p>
   <p>The pitch for humanoids is that the world was built for human bodies, so a robot shaped like a person should work in our spaces. We accept the premise and note that the world was built by human bodies specifically because the human body is poorly suited to it, which is why the humans keep building things. Nobody builds ramps for water. Water is already fine.</p>
-  <p>The skeptics of humanoids point out that Amazon&rsquo;s internal analysis reportedly found only 40 use cases for humanoids not addressed by other robot types, and that Gartner predicts fewer than 100 companies will advance humanoid proofs of concept beyond initial experimentation through 2028. Evolution, by contrast, has advanced the crab proof of concept beyond initial experimentation five times, shipped to every ocean, and maintained an installed base for half a billion years. We report these figures without further comment, in keeping with the tone of this publication.</p>
+  <p>The skeptics of humanoids point out that Amazon&rsquo;s internal analysis reportedly found only 40 use cases for humanoids not addressed by other robot types, and that Gartner predicts fewer than 100 companies will advance humanoid proofs of concept beyond initial experimentation through 2028. Evolution, by contrast, has advanced the crab proof of concept well beyond initial experimentation, shipped it to every ocean, and maintained an installed base for half a billion years. We report these figures without further comment.</p>
 
   <h3>Table of Contents</h3>
   <ul class="toc-list">
@@ -570,7 +570,7 @@
   <p>The decapod moves omnidirectionally as a native capability. It does not turn to change direction; heading and course are decoupled, as in a well-designed video game character or a poorly designed shopping cart. The industry describes such motion as &ldquo;holonomic&rdquo; and prices it accordingly. The crab describes it as walking.</p>
 
   <div class="fig">
-    <svg viewBox="0 0 640 250" xmlns="http://www.w3.org/2000/svg" aria-label="Comparison of load paths: inverted pendulum versus supported dome">
+    <svg viewBox="0 0 640 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Comparison of load paths: an inverted pendulum requiring constant corrective torque, versus a supported dome resting on four legs">
       <!-- left: biped -->
       <line x1="40" y1="210" x2="280" y2="210" class="crab-line-thin"/>
       <circle cx="160" cy="70" r="26" class="crab-line"/>
@@ -578,8 +578,8 @@
       <line x1="160" y1="150" x2="140" y2="210" class="crab-line"/>
       <line x1="160" y1="150" x2="184" y2="208" class="crab-line" stroke-dasharray="4 3"/>
       <path d="M 196 60 Q 232 66 226 100" class="crab-line-thin" marker-end="none"/>
-      <text x="160" y="238" text-anchor="middle" class="crab-label">Fig. 02a — Inverted pendulum (falling, managed)</text>
       <text x="242" y="52" class="crab-label">torque, always</text>
+      <text x="160" y="238" text-anchor="middle" class="crab-label">Fig. 02a — Inverted pendulum (falling, managed)</text>
       <!-- right: crab -->
       <line x1="360" y1="210" x2="600" y2="210" class="crab-line-thin"/>
       <path class="crab-line" d="M 420 160 Q 420 118 480 112 Q 540 118 540 160 Q 530 178 480 180 Q 430 178 420 160 Z"/>
@@ -595,9 +595,7 @@
   </div>
 
   <h2 id="motors">Motors</h2>
-  <p class="takeaway">Takeaways: The decapod platform is agnostic on motor architecture and adopts the industry&rsquo;s conclusions wholesale. Whatever motor wins the humanoid trade study, we will purchase eight of the small ones and zero of the large ones, and we will receive the volume discount.</p>
-  <p>Commutation method, electromagnetic geometry (inrunner versus outrunner; radial, axial, or transverse flux), and permanent magnet chemistry all matter, and all of them matter less at crab scale. Every torque requirement in a legged platform is downstream of gravity acting on limb length and mass height. Shorten the limbs and lower the mass, and the requirement column of the motor spreadsheet deflates by roughly an order of magnitude, at which point several &ldquo;constraints beyond engineering&rdquo;&mdash;rare-earth sourcing chief among them&mdash;relax from crisis to line item.</p>
-  <p>We note for completeness that a knee-torque motor and a crab-leg motor differ in price the way a crane differs from a door hinge, and for the same reason.</p>
+  <p>The decapod platform is agnostic on motor architecture: commutation method, electromagnetic geometry, and magnet chemistry all matter, and all of them matter less at one-eighth the torque. Every requirement in the motor spreadsheet is downstream of gravity acting on limb length and mass height, and the decapod has been designed to have little of either. We note for completeness that a knee-torque motor and a crab-leg motor differ in price the way a crane differs from a door hinge, and for the same reason. The brevity of this section is a specification.</p>
 
   <h2 id="reducers">Reducers</h2>
   <p class="takeaway">Takeaways: The strain-wave (harmonic) reducer is the single most expensive component in the humanoid, often costing more than the motor and sensors combined, because a shaking arm is a failed arm and preventing shake requires microscopic tolerances. The decapod&rsquo;s relationship to shaking is different. Shaking is a threat display. It is documented behavior and it is free.</p>
@@ -617,7 +615,7 @@
   <h2 id="batteries">Batteries</h2>
   <p class="takeaway">Takeaways: In a humanoid, battery placement is a negotiated settlement between center-of-gravity management and torso volume. In a decapod, the battery is the ballast. Lower is better. The floor of the carapace was prepared for this load by the design authority cited throughout this document.</p>
   <p>Humanoid energy budgets divide into locomotion, actuation, compute, and balance, with balance drawing continuously even at rest. The decapod at rest draws sensor and radio power only, because standing still is not a task. Duty-cycle modeling by our office suggests field endurance improvements of 2&ndash;4&times; on identical cells, a figure we present with the caveat that our office is not neutral, merely correct.</p>
-  <p>The cells themselves are commodity lithium-ion, compressed and repackaged from the EV supply chain like everyone else&rsquo;s. There is no crab-specific electrochemistry. We considered claiming otherwise and elected to preserve credibility for the sections where we need it.</p>
+  <p>The cells themselves are commodity lithium-ion, compressed and repackaged from the EV supply chain like everyone else&rsquo;s. There is no crab-specific electrochemistry.</p>
 
   <h2 id="chelae">End Effectors (Chelae)</h2>
   <p class="takeaway">Takeaways: The human hand has 27 degrees of freedom. The chela has 2. The industry has spent a decade and several billion dollars discovering, one degree of freedom at a time, which 25 were unnecessary.</p>
@@ -631,7 +629,7 @@
 
   <h2 id="landscape">Decapod Landscape</h2>
   <p class="takeaway">Takeaways: The competitive landscape for crab robotics is uncrowded. We regard this as the single largest identified market inefficiency in physical AI, and we regard the identification as this document&rsquo;s contribution to the field.</p>
-  <p>The state of the art in deployed decapod robotics remains <a href="https://en.wikipedia.org/wiki/Crabster_CR200" target="_blank" rel="noopener noreferrer">Crabster CR200</a>, the 600-kilogram six-legged seabed walker built by the Korea Institute of Ocean Science and Technology. It was completed in 2013. It has not been surpassed. This is not because it cannot be surpassed. It is because nobody is trying, which is the thesis of this section and arguably of this civilization.</p>
+  <p>The state of the art in deployed decapod robotics remains <a href="https://en.wikipedia.org/wiki/Crabster_CR200" target="_blank" rel="noopener noreferrer">Crabster CR200</a>, the 600-kilogram seabed walker built by the Korea Institute of Ocean Science and Technology. It was completed in 2013. It has six legs, two short of the reference specification, and it has not been surpassed anyway. This is not because it cannot be surpassed. It is because nobody is trying, which is the thesis of this section and arguably of this civilization.</p>
   <div class="table-wrap">
     <table>
       <thead>
@@ -642,7 +640,7 @@
         <tr><td>Limb redundancy</td><td>8 legs; graceful degradation</td><td>2 legs; mission-terminal</td><td>4 legs; limp</td></tr>
         <tr><td>Omnidirectional movement</td><td>Native</td><td>Turn first</td><td>Turn first</td></tr>
         <tr><td>Amphibious operation</td><td>Reference design is marine</td><td>Warranty-voiding</td><td>Limited</td></tr>
-        <tr><td>Shipping</td><td>Nests; stackable</td><td>One per crate, like furniture</td><td>Bulky</td></tr>
+        <tr><td>Shipping</td><td>Nests; stackable</td><td>One per crate, upright</td><td>Bulky</td></tr>
         <tr><td>Failure posture</td><td>Unchanged</td><td>Prone; dramatic</td><td>Prone</td></tr>
         <tr><td>Independent evolutionary confirmations</td><td>&ge;5</td><td>1</td><td>Several, none load-bearing here</td></tr>
       </tbody>
@@ -691,7 +689,7 @@
 
   <h2 id="thanks">Thank You&rsquo;s</h2>
   <p>We thank <a href="https://x.com/SourishJasti" target="_blank" rel="noopener noreferrer">Sourish Jasti</a>, <a href="https://x.com/ZoeyTang_1007" target="_blank" rel="noopener noreferrer">Zoey Tang</a>, <a href="https://x.com/intelchentwo" target="_blank" rel="noopener noreferrer">Intel Chen</a>, and <a href="https://x.com/vishnuman0" target="_blank" rel="noopener noreferrer">Vishnu Mano</a>, authors of <a href="https://www.humanityslastmachine.com/" target="_blank" rel="noopener noreferrer"><em>Humanity&rsquo;s Last Machine</em></a>, whose work on humanoid hardware informs every accurate sentence in this one. We thank <a href="https://x.com/noorslens" target="_blank" rel="noopener noreferrer">Noor Alam</a>, whose design language we have reproduced here the way the porcelain crab reproduces the crab: independently, imperfectly, and in tribute to a form that was already correct.</p>
-  <p>We thank the phylum Arthropoda for 500 million years of field testing, conducted without grant funding, published without embargo, and replicated five times.</p>
+  <p>We thank the phylum Arthropoda for 500 million years of field testing, conducted without grant funding and published without embargo.</p>
 
   <h2 id="sources">Sources</h2>
   <ul>
